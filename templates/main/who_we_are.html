@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+    <style>
+        bg {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+    </style>
+    <br/>
+    {% block title %}
+    <title>WHo We Are</title>
+    {% endblock title %}
+
+    
+    <div class="ui grid">
+        <div class="row">
+            <div class="eight wide column">
+                <div class="ui fluid card" id="bg" style="background-image: url('{% static "image/Logo001.jpg" %}')";>
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="eight wide column">
+                <div class="ui fluid card" id="bg" style="background-image: url('{% static "image/Logo001.jpg" %}')";>
+                    <div class="content">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixthin wide column">
+                <div class="ui fluid card" style="background-color: #1c1c86; ">
+                    <div class="content">
+                        <center><strong>
+                            <h1>Hospitality</h1>
+                        </strong></center>
+                        <h1 style="text-align:center; color: black; font-size: 40px; margin-top: 275px;">
+                        Why the hospitality sector needs RFID?</h1>
+                        <h1>HOTELS TOO NEED BETTER INVENTORY MANAGEMENT</h1> 
+                        <h1 style="color: darkcyan;">Who we Are</h1>
+                        <strong><a style="color: darkcyan;">
+                            We are a recently established RADIO FREQUENCY IDENTIFICATION business, 
+                            we are established in a fast-growing African market. RFIDESIGN has been established in 2019 in Pretoria, 
+                            Gauteng province, South Africa. We are dedicated to deliver high quality products to our customers, meanwhile, 
+                            we insist our sense of society responsibility and environmental protection duty.
+                            We thrive on bringing success in Information Technology industry through transparency, 
+                            accountability and oversight and passionately and all this by learning from both our customers and our competitors each time we interact. 
+                            We take the mission of promoting the popularity of RFID technology applications, 
+                            realizing intelligent data collection, improving efficiency, reducing costs, and creating benefits for users.
+                        </a></strong>
+                            <br/><br/>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div> 
+    {% endblock content %}
+    <center><strong>
+        <h1>Who we Are</h1>
+    </strong></center>
+
+                                           

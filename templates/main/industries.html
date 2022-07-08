@@ -1,0 +1,40 @@
+{% block content %}
+{% load static %}
+
+    {% block title %}
+    <title>industries</title>
+        <h1></h1>
+    {% endblock title %}
+        <div class="ui grid">
+            <div class="row">
+                <div class="sixthin wide column">
+                    <div class="ui fluid card" id="bg" style="background-image: url('{% static "image/istockphoto-1138429558-612x612.jpg" %}')";>
+                        <center><strong><h1>Industries</h1></strong></center>
+                        <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-12 col-sm-4 col-md-2 align-self-center">
+                                <nav class="navbar navbar-light vertical-navbar">
+                                  <div class="navbar-nav">
+                                    <a class="nav-item nav-link active" href="#">Menu item 1 <span class="sr-only">(current)</span></a>
+                                    <a class="nav-item nav-link" href="#">Menu item 2</a>
+                                    <a class="nav-item nav-link" href="#">Menu item 3</a>
+                                  </div>
+                                </nav>
+                              </div>
+                              <div class="col-12 col-sm-8 col-md-10">
+                                <div class="blog-header">
+                                  <div class="container">
+                                    <h1 class="blog-title">Title</h1>
+                                    <p class="lead blog-description">Lorem ipsum dolor sit amet.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}                           
+
+

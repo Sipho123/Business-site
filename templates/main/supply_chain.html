@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    {% block title %}
+    <title>supply_chain</title>
+    {% endblock title %}
+    <br/> <br/>
+        <div class="ui grid">
+            <div class="row">
+                <div class="sixthin wide column">
+                    <div class="ui fluid card">
+                        <div class="content">
+                            <center><strong>
+                                <h1  style="text-align: center; color: black; font-size: 25px; margin-top: 275px;">RFID in Supply Chain</h1>
+                            </strong></center>
+                            <p"font-size: 15px;">RFID systems are widely used to track intermediate bulk containers 
+                                (IBCs) in the chemicals industry, stillages in automotive plants, and industrial tanks 
+                                used to transport gases, oils and waste materials. By attaching RFID tags, containers can 
+                                be electronically identified from metres away. The tags can be read by fixed scanners as 
+                                they pass through doorways or key points in the production process, or by staff using 
+                                handheld readers. Containers can be booked out automatically, assigned to a particular
+                                customer and batch. They can be checked back in again and inspected just as easily and 
+                                stocks can be audited quickly too. By replacing spreadsheets and manual processes, 
+                                RFID systems save time and reduce errors. The data collected is automatically uploaded 
+                                to a cloud-based system so anyone with access can see which IBCs are where, their history
+                                and overall usage. Integration with back office systems is also easily achievable, 
+                                allowing asset and ERP systems to be updated automatically.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}

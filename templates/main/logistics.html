@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% block title %}
+    <title>logistics</title>
+    {% endblock title %}
+        <div class="ui grid">
+            <div class="row">
+                <div class="sixthin wide column">
+                    <div class="ui fluid card" id="bg" style="background-image: url('{% static "img/istockphoto-1138429558-612x612.jpg" %}')";>
+                        <center><strong>
+                            <h1>Logistics</h1>
+                        </strong></center>
+                        <strong style="text-align: center; color: black; font-size: 25px; margin-top: 275px;">RFID technology is currently making a huge difference in the transportation sector due to its 
+                        ability to support an incredibly versatile range of applications. Why is RFID being used so much 
+                        in this sector in particular, and how could you make the most of it?</strong>
+                        <h3>Automated Ticketing for Public Transport</h3>
+                        This clever use of RFID is not only great for speeding up the process of issuing tickets for the transport company 
+                        themselves, but it also benefits their consumers. How so? As we discussed before, RFID technology doesn’t require a 
+                        line of sight to be used and so it is extremely versatile and quick to use. This helps to reduce queuing times and 
+                        human errors which in turn will maximize customer satisfaction!
+                        <h3>RFID tags on vehicles</h3>
+                        This method is often used to track when vehicles arrive back at the depot, this then accurately keeps a record of the 
+                        available vehicles at any given time! Other applications include vehicle identification when arriving at a site. 
+                        These two ways of using RFID greatly contribute to faster business processes, planning and in turn the overall success
+                        of the whole transportation company.
+                        <h3>Hiring Equipment</h3>
+                        If your company offers equipment hire to customers, equipping the assets with RFID tags can help 
+                        to reduce the possibility of losses and theft. Tagging the equipment and having them actively 
+                        scanned along their journey will help you to keep full control of things like the location and 
+                        use times.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{% endblock content %}
