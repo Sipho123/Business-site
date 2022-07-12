@@ -8,8 +8,9 @@ from .utils import cookieCart, cartData, guestOrder
 
 def store(request):
     if request.user.is_authenticated:
-        customer = request.user.customer
-        #customer = request.user.username
+        #customer = request.user.customer
+        customer = request.user.username
+        #customer = User.objects.get(username=request.user)
         order, create = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get.cart_items
@@ -21,8 +22,8 @@ def store(request):
     product = Product.objects.all()
     context = {'product':product, 'cartItems':cartItems}
     return render(request, 'our_store/store.html', context)
-	
-	
+
+
 def cart(request):
     
     if request.user.is_authenticated:

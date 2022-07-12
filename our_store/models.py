@@ -3,9 +3,7 @@ from unicodedata import name
 from django.db import models
 from account.models import Account as User
 from django.conf import settings
-#from django.contrib import auth
 from django.contrib.auth import get_user_model as user_model
-#from self import self
 
 class Customer(models.Model):
 	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
