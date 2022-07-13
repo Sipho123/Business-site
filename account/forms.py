@@ -3,14 +3,15 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 
 from account.models import Account
-
+from our_store.models import Customer
+from django.contrib.auth import get_user_model
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Add a valid email address.')
 
     class Meta:
-        model = Account
-        fields = ('email', 'username', 'password1', 'password2', )
+        model = get_user_model()
+        fields = ('email','name','surname', 'username', 'password1', 'password2', )
 
 
 class AccountAuthenticationForm(forms.ModelForm):

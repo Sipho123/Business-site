@@ -5,16 +5,19 @@ from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUp
 from django.contrib.auth import authenticate
 from django.template import RequestContext
 
+from our_store.models import Customer
+
 
 def register(request):
 	context = {}
 	if request.POST:
 		form = RegistrationForm(request.POST)
 		if form.is_valid():
-			form.save()
+			user = form.save()
 			email = form.cleaned_data.get('email')
 			raw_password = form.cleaned_data.get('password1')
 			account = authenticate(email=email, password=raw_password)
+			customer = Customer.objects.create(user=user,name=f"{user.name} {user.surname}",email=user.email)
 			#login(request, account)
 			return redirect('home-view')
 		else:

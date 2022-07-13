@@ -3,7 +3,7 @@ $(document).ready(function(){
 })
 
 
-/* STORE NAVE BAR JS */
+/* thi is the event handler of the  CHECKOUT BUTTON and VIEW BUTTON */
 
 var updateBtns = document.getElementsByClassName('update-cart')
 
@@ -22,6 +22,7 @@ for (i = 0; i < updateBtns.length; i++) {
 	})
 }
 
+		/*updateItem*/
 function updateUserOrder(productId, action){
 	console.log('User is authenticated, sending data...')
 

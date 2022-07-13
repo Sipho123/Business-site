@@ -4,6 +4,8 @@ from django.db import models
 from account.models import Account as User
 from django.conf import settings
 from django.contrib.auth import get_user_model as user_model
+from django.contrib.auth.models import Group
+from django.utils.text import slugify
 
 class Customer(models.Model):
 	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -22,11 +24,11 @@ class Product(models.Model):
 
 	def __str__(self):
 		return self.name
-
+# this is not to have an error should i do not an image in the field
 		@property
 		def imageURL(self):
 			try:
-				url = self.img.url
+				url = self.image.url
 			except:
 				url = ''
 			return 
@@ -39,6 +41,15 @@ class Order(models.Model):
 
 	def __str__(self):
 		return str(self.id)
+	
+	@property
+	def shipping(self):
+		shipping = False
+		orderitems = self.orderitem_set.all()
+		for i in orderitems:
+			if i.product.digital == False:
+				shipping = True
+		return shipping
 	
 	@property
 	def get_cart_total(self):
@@ -59,7 +70,7 @@ class OrderItem(models.Model):
 	quantity = models.IntegerField(default=0, null=True, blank=True)
 	date_added = models.DateTimeField(auto_now_add=True)
 
-	#@property
+	@property
 	def get_total(self):
 		total = self.product.price * self.quantity
 		return total
