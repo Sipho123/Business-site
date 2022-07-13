@@ -18,12 +18,12 @@ body{
     background-position: center;
   }
   .main-nav{
-    float: left;
+    float: right;
     list-style: none;
     margin-top: 30px;
   }
   .main-nav li{
-    display: inline;
+    display: inline-block;
   }
   .main-nav li a{
     color: darkturquoise;
@@ -39,13 +39,6 @@ body{
     border: white;
     background-color: darkcyan;
   }
-  .logo{
-    width: 150px;
-    height: auto;
-    float: left;
-  
-  }
-
 /*Home button-73*/
 
 .button-73 {
@@ -72,7 +65,7 @@ body{
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    position: center;
+    position: centre;
     
   }
   
