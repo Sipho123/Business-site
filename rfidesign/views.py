@@ -44,15 +44,6 @@ def hospitality(request):
     }
     return render(request, 'main/hospitality.html', context)
 
-def applications(request):
-    user = request.user
-    hello = 'Hello'
-
-    context = {
-        'user': user,
-        'hello' : hello,
-    }
-    return render(request, 'main/applications.html', context)
     
 def who_we_are(request):
     user = request.user

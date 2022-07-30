@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 
 from account.models import Account
-from our_store.models import Customer
+#from our_store.models import Customer
 from django.contrib.auth import get_user_model
 
 class RegistrationForm(UserCreationForm):

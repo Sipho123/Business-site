@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.conf import settings
 from django.contrib.auth import get_user_model as user_model
-
-#from our_store.models import Customer
-
+from .models import *
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username, password=None):
@@ -51,6 +49,9 @@ class Account(AbstractBaseUser):
 		is_active				= models.BooleanField(default=True)
 		is_staff				= models.BooleanField(default=False)
 		is_superuser			= models.BooleanField(default=False)
+		#customer = models.ForeignKey("account.customer", on_delete=models.SET_NULL, null=True, blank=True)
+		#customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+
 		
 		USERNAME_FIELD = 'email'	
 		REQUIRED_FIELDS = ['username']

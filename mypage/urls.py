@@ -23,9 +23,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('rfidesign.urls')),
-    path('', include('our_store.urls')),
     path('', include('account.urls')),
     path('', include('get_in_touch.urls')),
+    path('', include('our_store.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

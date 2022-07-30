@@ -6,7 +6,6 @@ urlpatterns = [
     path('what_we_do/', views.what_we_do, name='what_we_do-view'),
     path('industries/', views.industries, name='industries-view'),
     #path('products/', views.products_view, name='products-view'),
-    path('applications/', views.applications, name='applications-view'),
     path('who_we_are/', views.who_we_are, name='who_we_are-view'),
     path('agriculture/', views.agriculture, name='agriculture-view'),
     path('hospitality/', views.hospitality, name='hospitality-view'),

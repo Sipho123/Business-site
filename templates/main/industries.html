@@ -1,40 +1,101 @@
-{% block content %}
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
+
 
     {% block title %}
     <title>industries</title>
         <h1></h1>
     {% endblock title %}
-        <div class="ui grid">
-            <div class="row">
-                <div class="sixthin wide column">
-                    <div class="ui fluid card" id="bg" style="background-image: url('{% static "image/istockphoto-1138429558-612x612.jpg" %}')";>
-                        <center><strong><h1>Industries</h1></strong></center>
-                        <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-12 col-sm-4 col-md-2 align-self-center">
-                                <nav class="navbar navbar-light vertical-navbar">
-                                  <div class="navbar-nav">
-                                    <a class="nav-item nav-link active" href="#">Menu item 1 <span class="sr-only">(current)</span></a>
-                                    <a class="nav-item nav-link" href="#">Menu item 2</a>
-                                    <a class="nav-item nav-link" href="#">Menu item 3</a>
-                                  </div>
-                                </nav>
-                              </div>
-                              <div class="col-12 col-sm-8 col-md-10">
-                                <div class="blog-header">
-                                  <div class="container">
-                                    <h1 class="blog-title">Title</h1>
-                                    <p class="lead blog-description">Lorem ipsum dolor sit amet.</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="ui grid" style="font-size: 20px;">
+          <div class="row">
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">Who is RFID for?</div>
+              </div>
             </div>
+            <div class="eight wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">
+                  RFID has been adoubted by various industries in a very short space of time.
+                </div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content"> RFID works efficient in all Industries.</div>
+              </div>
+            </div>
+          </div>
+          <br/><br/><br/><br/>
+          <div class="row">
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">AGRICULTURE</div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">HOSPITALITY</div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">
+                  FOOD
+                </div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content"> LOGISTICS</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">MANUFACTURING</div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">MEDICAL</div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">
+                  PHARMACEUTICAL
+                </div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content"> RETAIL</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content"></div>
+              </div>
+            </div>
+            <div class="eight wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">
+                  SUPPLY CHAIN
+                </div>
+              </div>
+            </div>
+            <div class="four wide column">
+              <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content"> </div>
+              </div>
+            </div>
+          </div>
         </div>
-{% endblock content %}                           
+{% endblock content %} 
 
 

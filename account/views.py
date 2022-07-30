@@ -5,7 +5,7 @@ from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUp
 from django.contrib.auth import authenticate
 from django.template import RequestContext
 
-from our_store.models import Customer
+#from .models import Customer
 
 
 def register(request):
