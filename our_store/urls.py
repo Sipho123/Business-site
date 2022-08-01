@@ -1,9 +1,17 @@
-from django import views
 from django.urls import path
-from  . import views
+from xml.etree.ElementInclude import include
+from django.views import View
 
+from .views import(
+        
+StoreView,
+AllProductsView,
+
+)
+
+app_name = 'our_store'
 urlpatterns = [
-        path('item_list/', views.item_list, name='item-list'),
-         path('store/', views.store, name='store-view'),
-        ]
+        path('store/', StoreView.as_view(), name='store'),
+        path('all-products/', AllProductsView.as_view(), name='allproducts'),
 
+]

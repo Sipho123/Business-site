@@ -1,14 +1,25 @@
 from multiprocessing import context
+from pipes import Template
+from re import template
 from django.shortcuts import render
-from .models import Item
+from .models import *
+from django.views.generic import TemplateView
 
-def item_list(request):
-    context = {
-        'items': Item.objects.all()
-    }
-    return render(request, 'item_list.html', context)
 
-def store(request):
-    
-    context = {'items': Item.objects.all()}
-    return render(request, 'our_store/store.html', context)
+
+
+class StoreView(TemplateView):
+    template_name ="store.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_list'] = Product.objects.all()
+        return  context
+
+class AllProductsView(TemplateView):
+    template_name ="allproducts.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['allcategories'] = Categories.objects.all()
+        return  context
