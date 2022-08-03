@@ -28,7 +28,7 @@
                                 2500; object-fit:cover;"> 
                                 <h5 style="display: inline-block; float: right; "><strong><p>Price: <strike>R{{p.marked_price | floatformat}}</strike>  | R 
                                 {{p.selling_price | floatformat}}</p></strong></h5>
-                                <a href="" class="btn btn-primary">Add To Cart</a>    
+                                <a href="{% url 'our_store:addtocart' p.id %}" class="btn btn-primary">Add To Cart</a>    
                             </div>
                         </div> 
                         {% endfor %}   

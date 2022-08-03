@@ -7,8 +7,17 @@
 
        
         {% block content %}
-        
-        
+        <br>
+        <div class="sixthin wide column">
+            <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                <div class="content">
+                    <a href="{% url 'our_store:all-products' %}" class="btn btn-danger disabled">All Products</a>
+                    <a href="{% url 'our_store:my-cart' %}" class="btn btn-danger disabled">My Cart</a>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
                 {% for p in product_list %}
                 <div class="col-lg-4">
@@ -20,7 +29,7 @@
                         <button data-product="{{product.id}}" data-action="add" 
                         class="btn btn-outline-secondary add-btn update-cart" href="{% url 'our_store:addtocart' p.id %}" >
                             Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
+                        <a class="btn btn-outline-success" href="{% url 'our_store:productdetail' p.slug %}">View</a>
                         <!--<h5 style="display: inline-block; float: right; "><strong>R{{selling.price | floatformat}}</strong></h5>-->
                         <h5 style="display: inline-block; float: right; "><strong><p>Price: <strike>R{{p.marked_price | floatformat}}</strike>  | R 
                             {{p.selling_price | floatformat}}</p></strong></h5>

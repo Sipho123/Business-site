@@ -65,8 +65,7 @@ class AddToCartView(TemplateView):
             # new items added in cart
             else:
                 cartproduct = CartProduct.objects.create(
-                    cart=cart_obj, product=product_obj, rate=product_obj.selling_price, quality=1, subtotal=product_obj.selling_price
-                )
+                    cart=cart_obj, product=product_obj, rate=product_obj.selling_price, quantity=1, subtotal=product_obj.selling_price)
                 cart_obj.total += product_obj.selling_price
                 cart_obj.save()
 
@@ -75,12 +74,16 @@ class AddToCartView(TemplateView):
             cart_obj = Cart.objects.create(total=0)
             self.request.session['cart_id'] = cart_obj.id
             cartproduct = CartProduct.objects.create(
-                cart=cart_obj, product=product_obj, rate=product_obj.selling_price, quality=1, subtotal=product_obj.selling_price
-            )
+                cart=cart_obj, product=product_obj, rate=product_obj.selling_price, quantity=1, subtotal=product_obj.selling_price)
             cart_obj.total += product_obj.selling_price
             cart_obj.save()
         
         return context 
+
+class MyCartView(TemplateView):
+    template_name = "mycart.html" 
+
+
 
 
 
