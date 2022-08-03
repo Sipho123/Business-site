@@ -23,7 +23,7 @@
                         {% for p in cat.product_set.all %}
                         <div class="col-md-3">
                             <div class="m-4">
-                                <strong><h6><a href="{% url 'our_store:store' p.slug %}">{{p.title}}</a></h6></strong>
+                                <strong><h6><a href="{% url 'our_store:productdetail' p.slug %}">{{p.title}}</a></h6></strong>
                                 <img src="{{p.image.url}}" alt="" class="img-fluid" style="height: 
                                 2500; object-fit:cover;"> 
                                 <h5 style="display: inline-block; float: right; "><strong><p>Price: <strike>R{{p.marked_price | floatformat}}</strike>  | R 
@@ -36,28 +36,6 @@
                 {% endfor %}
                 </div>
             
-            <!--   <div class="row">
-                    {% for cat in allcategories %}
-                        <div class="col-lg-4">
-                            <h4>{{cat.title}}</h4><hr>
-                            <div class="box-element product">
-                                {% for p in cat.product_set.all %}
-                                <div class="col-md-3">
-                                    <div class="m-4">
-                                        <h3>{{p.title}}</h3>
-                                        <img src="{{p.image.url}}" alt="" class="img-fluid" style="height: 
-                                        2500; object-fit:cover;"> 
-                                        <h5 style="display: inline-block; float: right; "><strong><p>Price: <strike>R{{p.marked_price | floatformat}}</strike>  | R 
-                                        {{p.selling_price | floatformat}}</p></strong></h5>
-                                        <a href="" class="btn btn-primary">Add To Cart</a>    
-                                    </div>
-                                </div> 
-                                {% endfor %}   
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>  --> 
-
     {% endblock content %}
                 
                 

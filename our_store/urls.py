@@ -7,6 +7,7 @@ from .views import(
 StoreView,
 AllProductsView,
 ProductDetailView,
+AddToCartView
 
 )
 
@@ -15,5 +16,6 @@ urlpatterns = [
         path('store/', StoreView.as_view(), name='store'),
         path('all-products/', AllProductsView.as_view(), name='allproducts'),
         path('product/<slug:slug>/', ProductDetailView.as_view(), name='productdetail'),
+        path('add-to-cart-<int:pro_id>/', AddToCartView.as_view(), name='addtocart'),
 
 ]

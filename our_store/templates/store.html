@@ -12,13 +12,13 @@
         <div class="row">
                 {% for p in product_list %}
                 <div class="col-lg-4">
-                    <strong><h6><a href="{% url 'our_store:store' p.slug %}">{{p.title}}</a></h6></strong>
+                    <strong><h6><a href="{% url 'our_store:productdetail' p.slug %}">{{p.title}}</a></h6></strong>
                     <img class="thumbnail" src="{{p.image.url}}">
                     <div class="box-element product">
                         <!--<h6><strong>{{product_list}}</strong></h6>-->
                         <hr>
                         <button data-product="{{product.id}}" data-action="add" 
-                        class="btn btn-outline-secondary add-btn update-cart">
+                        class="btn btn-outline-secondary add-btn update-cart" href="{% url 'our_store:addtocart' p.id %}" >
                             Add to Cart</button>
                         <a class="btn btn-outline-success" href="#">View</a>
                         <!--<h5 style="display: inline-block; float: right; "><strong>R{{selling.price | floatformat}}</strong></h5>-->
