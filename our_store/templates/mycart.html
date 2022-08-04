@@ -7,10 +7,27 @@
 
        
         {% block content %}
+        <br>
+            <div class="row">
+                <div class="sixthin wide column">
+                    <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
+                        <div class="content">
+                            <div class="btn-group btn-group-justified">
+                                <centre><h3>My Cart </h3></centre>
+                                <a href="{% url 'our_store:store' %}" class="btn btn-primary">Back to Our Store</a>
+                                <a href="{% url 'our_store:allproducts' %}" class="btn btn-primary">All Products</a>
+                                <a href="" class="btn btn-primary"></a>
+                                <a href="#" class="btn btn-primary"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
         <div class="row">
             <div class="col-md-8">
                 <h3>Items in my cart</h3><hr>
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
                             <th>SN</th>
@@ -21,9 +38,17 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <bpdy>
-
-                    </bpdy>
+                    <tbody>
+                        {% for cp in cart.cartproduct_set.all %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{cp.product.title}}</td>
+                                <td>{{cp.rate}}</td>
+                                <td>{{cp.subtotal}}</td>
+                                <td>{{forloop.quantity}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>

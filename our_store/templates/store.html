@@ -11,12 +11,15 @@
         <div class="sixthin wide column">
             <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
                 <div class="content">
-                    <a href="{% url 'our_store:all-products' %}" class="btn btn-danger disabled">All Products</a>
-                    <a href="{% url 'our_store:my-cart' %}" class="btn btn-danger disabled">My Cart</a>
+                    <div class="btn-group btn-group-justified">
+                        <a href="{% url 'our_store:allproducts' %}" class="btn btn-primary">All Products</a>
+                        <a href="{% url 'our_store:mycart' %}" class="btn btn-primary">My Cart</a>
+                        <a href="" class="btn btn-primary"></a>
+                        <a href="#" class="btn btn-primary"></a>
+                    </div>
                 </div>
             </div>
         </div>
-
 
         <div class="row">
                 {% for p in product_list %}
