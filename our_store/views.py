@@ -87,7 +87,7 @@ class MyCartView(TemplateView):
         context = super().get_context_data(**kwargs)
         cart_id = self.request.session.get('cart_id', None)
         if cart_id:
-            cart = Cart.objects.get(id=cart_id)
+                cart = Cart.objects.get(id=cart_id)
         else:
             cart = None
         context['cart'] = cart
