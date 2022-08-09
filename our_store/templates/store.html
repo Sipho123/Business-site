@@ -13,7 +13,7 @@
                 <div class="content">
                     <div class="btn-group btn-group-justified">
                         <a href="{% url 'our_store:allproducts' %}" class="btn btn-primary">All Products</a>
-                        <a href="{% url 'our_store:mycart' %}" class="btn btn-primary">My Cart</a>
+                        <a href="" class="btn btn-primary">My Cart</a>
                         <a href="" class="btn btn-primary"></a>
                         <a href="#" class="btn btn-primary"></a>
                     </div>
@@ -22,25 +22,22 @@
         </div>
 
         <div class="row">
-                {% for p in product_list %}
-                <div class="col-lg-4">
-                    <strong><h6><a href="{% url 'our_store:productdetail' p.slug %}">{{p.title}}</a></h6></strong>
-                    <img class="thumbnail" src="{{p.image.url}}">
-                    <div class="box-element product">
-                        <!--<h6><strong>{{product_list}}</strong></h6>-->
-                        <hr>
-                        <button data-product="{{product.id}}" data-action="add" 
-                        class="btn btn-outline-secondary add-btn update-cart" href="{% url 'our_store:addtocart' p.id %}" >
-                            Add to Cart</button>
-                        <a class="btn btn-outline-success" href="{% url 'our_store:productdetail' p.slug %}">View</a>
+            {% for p in product_list %}
+            <div class="col-lg-4">
+                <strong><h6><a href="{% url 'our_store:productdetail' p.slug %}">{{p.title}}</a></h6></strong>               
+                <img class="thumbnail" src="{{p.image.url}}">
+                <hr>
+                <div class="box-element product">
+                    <a href="{% url 'our_store:addtocart' p.id %}" class="btn btn-outline-secondary add-btn update-cart">Add To Cart</a>
+                    <a class="btn btn-outline-success" href="{% url 'our_store:productdetail' p.slug %}">View</a>
                         <!--<h5 style="display: inline-block; float: right; "><strong>R{{selling.price | floatformat}}</strong></h5>-->
                         <h5 style="display: inline-block; float: right; "><strong><p>Price: <strike>R{{p.marked_price | floatformat}}</strike>  | R 
                             {{p.selling_price | floatformat}}</p></strong></h5>
-
-                    </div>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
+            
+        </div>
            
             
             
