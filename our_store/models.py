@@ -13,6 +13,7 @@ from datetime import timezone
 from django.contrib.auth import get_user_model as user_model
 User = user_model()
 
+
 class Customer(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE)
    full_name = models.CharField(max_length=200)
@@ -21,33 +22,13 @@ class Customer(models.Model):
 
    def __str__(self):
        return self.full_name
-
+      
 class Category(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.title
-
-#class Item(models.Model):
-#   title = models.CharField(max_length=200)
-#   price = models.DecimalField(max_digits=7, decimal_places=2)
-#   def __str__(self):
-#       return self.title
-
-#class OrderItem(models.Model):
-#   item = models.ForeignKey(Item, on_delete=models.CASCADE)
-#
-#   def __str__(self):
-#           return self.title
-
-ORDER_STATUS = (
-   ("Order Received", "Order Received"),
-   ("Order Processing", "Order Processing"),
-   ("On the way", "On the way"),
-   ("Order Canceled", "Order Canceled"),
-)
-
 
 
 class Product(models.Model):
@@ -65,13 +46,33 @@ class Product(models.Model):
     def __str__(self):
             return self.title
 
+
 class Cart(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    customer = models.ForeignKey(
+        Customer, on_delete=models.SET_NULL, null=True, blank=True)
     total = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return "Cart: " + str(self.id)
+
+
+class CartProduct(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    rate = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField()
+    subtotal = models.PositiveIntegerField()
+
+    def __str__(self):
+        return "Cart: " + str(self.cart.id) + " CartProduct: " + str(self.id)
+
+ORDER_STATUS = (
+   ("Order Received", "Order Received"),
+   ("Order Processing", "Order Processing"),
+   ("On the way", "On the way"),
+   ("Order Canceled", "Order Canceled"),
+)
 
 class Order(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, default=None)
@@ -87,13 +88,4 @@ class Order(models.Model):
     def __str__(self):
            return "Order: " + str(self.id)
 
-class CartProduct(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    rate = models.PositiveIntegerField()
-    quantity = models.PositiveIntegerField()
-    subtotal = models.PositiveIntegerField()
-
-    def __str__(self):
-        return "Cart: " + str(self.cart.id) + " CartProduct: " + str(self.id)
 

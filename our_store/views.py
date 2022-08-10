@@ -1,5 +1,6 @@
 from multiprocessing import context
 from pipes import Template
+from random import Random
 from re import template
 from django.shortcuts import render
 from .models import *
@@ -48,13 +49,12 @@ class AddToCartView(TemplateView):
         # check if cart exists
         cart_id = self.request.session.get('cart_id', None)
         if cart_id:
-            cart_obj = Cart.objects.get(id=cart_id)
-            print("old cart")
+            Cart_obj = Cart.objects.get(id=cart_id)
         else:
-            cart_obj = Cart.objects.create(total=0) 
-            self.request.session['cart_id'] = cart_obj.id
-        #    print('new cart')       
-        
-        return  context 
+            Cart_obj = Cart.objects.create(total=0)
+            self.request.session.get['cart_id'] = Cart_obj.id
+        return context
 
+        
+        
 
