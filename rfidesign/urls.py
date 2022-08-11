@@ -13,7 +13,7 @@ urlpatterns = [
     path('logistics/', views.logistics, name='logistics-view'),
     path('manufacturing/', views.manufacturing, name='manufacturing-view'),
     path('medical/', views.medical, name='medical-view'),
-    path('pharmatucal/', views.pharmatucal, name='pharmatucal-view'),
+    path('pharmaceutical/', views.pharmaceutical, name='pharmaceutical-view'),
     path('retail/', views.retail, name='retail-view'),
     path('supply_chain/', views.supply_chain, name='supply_chain-view'),
 

@@ -106,7 +106,7 @@ def medical(request):
     }
     return render(request, 'main/medical.html', context)
 
-def pharmatucal(request):
+def pharmaceutical(request):
     user = request.user
     hello = 'Hello'
 
@@ -114,7 +114,7 @@ def pharmatucal(request):
         'user': user,
         'hello' : hello,
     }
-    return render(request, 'main/pharmatucal.html', context)
+    return render(request, 'main/pharmaceutical.html', context)
 
 def retail(request):
     user = request.user
