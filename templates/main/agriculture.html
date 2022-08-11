@@ -12,37 +12,24 @@
     {% endblock title %}
         <div class="ui grid">
             <div class="row">
-                <div class="sixthin wide column">
-                    <div class="ui fluid card" id="bg" style="background-image: url('{% static "image/04-RFID-Smart-Farming-Agriculture-980x653.jpeg" %}')";>
-                        <center><strong>
-                            <h1>Agriculture</h1>
-                        </strong></center>
-                        <h1 style="text-align: center; color: white; font-size: 40px; margin-top: 275px;"></h1>RFID in farming helps monitor livestock, crops, and the environmental conditions that influence yields</h1>
-                        <strong></strong><h3>How RFID in Farming and Agriculture Improves Global Food Production</h3></strong>
-                        <p> 1. Enabling Farm Automation and Control</p>
-                        <p> 2. Recording Climate Information for Improved Yields</p>
-                        <p> 3. Increasing Agricultural Productivity with RFID Tagging</p>
-                        <p> 4. Livestock Monitoring for Health and Disease Detection</p>
-                        <p> 5. Keeping Consumers Informed About their Food</p>-->
-                    </div>
+                <div class="col-md-7">
+                    <!--<img src={% static 'image/6-Axis-Robot-1.jpg' %}>--> 
+                    <img src={% static 'image/05-RFID-Smart-Farming-Agriculture-980x653.jpeg' %}>
+                </div>
+                <div class="col-md-6">
+                    <h1>Agriculture</h1>
+                    <hr>
+                    <h1></h1>RFID in farming helps monitor livestock, crops, and the environmental conditions that influence yields</h1>
+                    <strong></strong><h3>How RFID in Farming and Agriculture Improves Global Food Production</h3></strong>
+
+                    <p class="text-info">Warranty: {{product.category}}</p>
+                    <p class="text-info">Return Policy: {{product.return_policy}}</p>
+                    <p> 1. Enabling Farm Automation and Control</p>
+                    <p> 2. Recording Climate Information for Improved Yields</p>
+                    <p> 3. Increasing Agricultural Productivity with RFID Tagging</p>
+                    <p> 4. Livestock Monitoring for Health and Disease Detection</p>
+                    <p> 5. Keeping Consumers Informed About their Food</p>-->
+                    <hr>
                 </div>
             </div>
-            <div class="row">
-                <div class="sixthin wide column">
-                    <div class="ui fluid card">
-                        <center><strong>
-                            <h1>Agriculture</h1>
-                        </strong></center>
-                        <h1 style="text-align: center;"></h1>RFID in farming helps monitor livestock, crops, and the environmental conditions that influence yields</h1>
-                        <strong></strong><h3>How RFID in Farming and Agriculture Improves Global Food Production</h3></strong>
-                        <p> 1. Enabling Farm Automation and Control</p>
-                        <p> 2. Recording Climate Information for Improved Yields</p>
-                        <p> 3. Increasing Agricultural Productivity with RFID Tagging</p>
-                        <p> 4. Livestock Monitoring for Health and Disease Detection</p>
-                        <p> 5. Keeping Consumers Informed About their Food</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
     {% endblock content %}
