@@ -117,11 +117,13 @@ class MyCartView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         Cart_id = self.request.session.get('Cart_id', None)
+        #cart_id = self.request.session.get('Cart_id', None)
+
         if Cart_id:
             Cart = Cart.objects.get(id=Cart_id)
         else:
             Cart = None
-            context['Cart'] = Cart
+        context['Cart'] = Cart
 
         return context
 

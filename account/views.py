@@ -41,7 +41,7 @@ def login(request):
 
 	user = request.user
 	if user.is_authenticated: 
-		return redirect("home-view")
+		return redirect("store-view")
 
 	if request.POST:
 		form = AccountAuthenticationForm(request.POST)
