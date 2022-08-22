@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+    
+        {% block title %}
+            <title>customerregistrationform</title>
+        {% endblock title %}
+    
+        {% block content %}
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <h3>Customer Registration Form</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button>Create an account</button>
+
+            </form>
+            </div>
+        </div>
+        {% endblock content %}

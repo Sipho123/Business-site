@@ -38,7 +38,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                       {% for cp in Cart.cartproduct_set.all %}
+                       {% for cp in cart.cartproduct_set.all %}
                             <tr>
                                 <td>{{forloop.counter}}</td>
                                 <td>{{cp.product.title}}</td>
@@ -55,8 +55,16 @@
                         <tr>
                             <th colspan='4' class='text-rigth'>Total</th>
                             <th>R{{cart.total}}</th>
+                            {% if cart.cartproduct_set.all  %}
+                            <th><a href="{% url 'our_store:emptycart' %}">Empty Cart</a></th>
+                            {% endif %}
                         </tr>
-                       
+                        <tr>
+                            {% if cart.cartproduct_set.all  %}
+                            <th><a class="btn btn-info" href="{% url 'our_store:checkout' %}">Checkout</a></th>
+                            {% endif %}
+                        </tr>
+
 
                     </tbody>
                 </table>

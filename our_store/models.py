@@ -15,12 +15,16 @@ User = user_model()
 
 
 class Customer(models.Model):
-   user = models.OneToOneField(User, on_delete=models.CASCADE)
-   full_name = models.CharField(max_length=200)
-   address = models.CharField(max_length=200, null=True, blank=True)
-   joined_on = models.DateTimeField(auto_now_add=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, null=True, blank=True)
+    joined_on = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField(null=True,blank=True)
+    password = models.CharField(max_length=100,null=True)
+    username = models.CharField(max_length=25,null=True)
 
-   def __str__(self):
+
+    def __str__(self):
        return self.full_name
       
 class Category(models.Model):
@@ -84,7 +88,8 @@ class Order(models.Model):
     total = models.PositiveIntegerField()
     order_status = models.CharField(max_length=50, choices=ORDER_STATUS)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    email = models.EmailField(null=True,blank=True)
+    
     def __str__(self):
            return "Order: " + str(self.id)
 

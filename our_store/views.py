@@ -1,13 +1,20 @@
+from audioop import reverse
 from genericpath import exists
 from multiprocessing import context
 from pipes import Template
 from random import Random
 from re import template
+from tkinter.tix import Form
 from django.shortcuts import render,redirect
+
+from our_store.forms import CheckoutForm, CustomerRegistrationForm
 from .models import *
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, CreateView
 from django.http import HttpResponse
 from .models import Cart
+from .forms import CheckoutForm
+from django.urls import reverse_lazy
+
 
 
 class StoreView(TemplateView):
@@ -69,10 +76,9 @@ class AddToCartView(TemplateView):
                 cart_obj.save()
 
         else:
-            Cart_obj = Cart.objects.create(total=0)
-            #cart_obj = Cart.objects.create(total=0)
-            self.request.session['cart_id'] = Cart_obj.id
+            cart_obj = Cart.objects.create(total=0)
             #self.request.session['cart_id'] = cart_obj.id
+            self.request.session['cart_id'] = cart_obj.id
             cartproduct = CartProduct.objects.create(
                 cart=cart_obj, product=product_obj, rate=product_obj.selling_price, quantity=1, subtotal=product_obj.selling_price)
             cart_obj.total += product_obj.selling_price
@@ -110,22 +116,71 @@ class ManageCartView(View):
             pass
         return redirect('our_store:mycart')
 
+class EmptyCartView(View):
+    def get(self, request, *args, **kwargs):
+        cart_id = request.session.get('cart_id', None)
+        if cart_id:
+            cart = Cart.objects.get(id=cart_id)
+            cart.cartproduct_set.all().delete()
+            cart.total = 0
+            cart.save()
+        return redirect('our_store:mycart')
+
+
+
 class MyCartView(TemplateView):
     template_name= 'mycart.html'
-#this section carries an error cart details is nor showing,
-# i think typo error is the issue
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        Cart_id = self.request.session.get('Cart_id', None)
-        #cart_id = self.request.session.get('Cart_id', None)
-
-        if Cart_id:
-            Cart = Cart.objects.get(id=Cart_id)
+        cart_id = self.request.session.get('cart_id', None)
+        print(cart_id)
+        
+        if cart_id:
+            cart = Cart.objects.get(id=cart_id)
+            
         else:
-            Cart = None
-        context['Cart'] = Cart
+            cart = None
+        context['cart'] = cart
 
         return context
+
+class CheckoutView(CreateView):
+    template_name= 'checkout.html'
+    form_class = CheckoutForm
+    success_url: reverse_lazy('our_store:store')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data( **kwargs)
+        cart_id = self.request.session.get('cart_id', None)
+
+        if cart_id:
+            cart_obj = Cart.objects.get(id=cart_id)
+        else:
+            cart_obj = None
+        context['cart'] = cart_obj
+        return context
+    
+    def form_valid(self, form):
+        cart_id = self.request.session.get('cart_id', None)
+        if cart_id:
+            cart_obj = Cart.objects.get(id=cart_id)
+            form.instance.cart = cart_obj
+            form.instance.subtotal = cart_obj.total
+            form.instance.discount = 0
+            form.instance.total = cart_obj.total
+            form.instance.order_status = "Order Received"
+            del self.request.session['cart_id']
+        else:
+            return redirect('our_store:store')
+        return super().form_valid(form)
+
+class CustomerRegistrationView(CreateView):
+    template_name= 'customerregistration.html'
+    form_class = CustomerRegistrationForm
+    success_url: reverse_lazy('our_store:store')
+
+
+
 
     
 
