@@ -14,9 +14,13 @@
                     <div class="btn-group btn-group-justified">
                         <a href="{% url 'our_store:allproducts' %}" class="btn btn-primary">All Products</a>
                         <a href="{% url 'our_store:mycart' %}" class="btn btn-primary">My Cart</a>
+
+                        {% if request.user.customer %}
+                        Welcome {{request.user.username}}!!
+                        {% else %}
                         <a href="{% url 'our_store:customerregistration' %}" class="btn btn-primary">Login</a>
                         <a href="{% url 'our_store:customerregistration' %}" class="btn btn-primary">Create an account</a>
-
+                        {% endif %}
                     </div>
                 </div>
             </div>

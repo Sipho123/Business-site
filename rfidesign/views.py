@@ -1,7 +1,7 @@
 import email
 from turtle import setundobuffer
 from django.shortcuts import render
-from account.models import Account
+#from account.models import Account
 
 
 def home(request):

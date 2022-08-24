@@ -1,4 +1,5 @@
 from audioop import reverse
+import email
 from genericpath import exists
 from multiprocessing import context
 from pipes import Template
@@ -7,13 +8,14 @@ from re import template
 from tkinter.tix import Form
 from django.shortcuts import render,redirect
 
-from our_store.forms import CheckoutForm, CustomerRegistrationForm
+from our_store.forms import CheckoutForm
 from .models import *
 from django.views.generic import View, TemplateView, CreateView
 from django.http import HttpResponse
 from .models import Cart
-from .forms import CheckoutForm
+from .forms import CheckoutForm, CustomerRegistrationForm
 from django.urls import reverse_lazy
+from django.contrib.auth import authenticate, login, logout
 
 
 
@@ -178,6 +180,15 @@ class CustomerRegistrationView(CreateView):
     template_name= 'customerregistration.html'
     form_class = CustomerRegistrationForm
     success_url: reverse_lazy('our_store:store')
+#my redirection does not show store,but the custermer is created successfull
+    def form_valid(self, form):
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        email = form.cleaned_data.get('email')
+        user = User.objects.create_user(username, email, password)
+        form.instance.user = user
+        return super().form_valid(form)
+
 
 
 

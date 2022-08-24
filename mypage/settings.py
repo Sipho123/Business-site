@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     # my apps
     'rfidesign',
     'our_store',
-    'account',
+    #'account',
     'get_in_touch',
 
     #django apps
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'account.Account'
+#AUTH_USER_MODEL = 'account.Account'
 WSGI_APPLICATION = 'mypage.wsgi.application'
 
 
