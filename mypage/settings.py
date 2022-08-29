@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+
 # import django
 from pathlib import Path
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'our_store',
     #'account',
     'get_in_touch',
+    
 
     #django apps
     'django.contrib.admin',
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.humanize',
+
     'django.contrib.staticfiles',
 ]
 
@@ -154,6 +158,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True #Security perpose
 EMAIL_HOST_USER = 'buyilemgwezani@gmail.com'
-EMAIL_HOST_PASSWORD = 'Happym_123'
+EMAIL_HOST_PASSWORD = 'Happym_123' #please putyour real password
 #EMAIL_USE_SSL = False #Security perpose
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+

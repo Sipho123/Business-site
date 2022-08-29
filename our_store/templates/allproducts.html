@@ -16,9 +16,18 @@
                         <div class="btn-group btn-group-justified" >
                             <centre><h3>ALL CATEGORIES </h3></centre>
                             <a href="{% url 'our_store:store' %}" class="btn btn-primary">Back to Our Store</a>
-                            <a href="{% url 'our_store:mycart' %}" class="btn btn-primary">My Cart</a>
-                            <a href="" class="btn btn-primary"></a>
-                            <a href="#" class="btn btn-primary"></a>
+                            <!--<a href="{% url 'our_store:mycart' %}" class="btn btn-primary">My Cart</a>-->
+                            {% if request.user.customer %}
+                        Welcome {{request.user.username}}!!
+                        <a href="{% url 'our_store:mycart' %}" class="btn btn-primary">My Cart</a>
+                        <a href="{% url 'our_store:customerprofile' %}" class="btn btn-primary">My Profile</a>
+                        <a href="{% url 'our_store:customerlogout' %}" class="btn btn-primary">Logout</a>
+                        {% else %}
+                       
+
+                        <a href="{% url 'our_store:customerregistration' %}" class="btn btn-primary">Create an account</a>
+                        <a href="{% url 'our_store:customerlogin' %}" class="btn btn-primary">Login</a>
+                        {% endif %}
                         </div>
                     </div>
                 </div>

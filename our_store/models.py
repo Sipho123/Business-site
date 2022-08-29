@@ -9,10 +9,20 @@ from numpy import product
 from django.contrib.auth.models import User
 from datetime import datetime
 from datetime import timezone
+from django.urls import reverse
+
 
 from django.contrib.auth import get_user_model as user_model
 User = user_model()
 
+class Admin(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="admin")
+    mobile = models.CharField(max_length=20)
+
+    def __str__(self):
+       return self.user.username
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -26,7 +36,11 @@ class Customer(models.Model):
 
     def __str__(self):
        return self.full_name
-      
+    
+    def get_absolute_url(self):
+         return reverse("our_store:store")
+
+    
 class Category(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
@@ -49,6 +63,13 @@ class Product(models.Model):
 
     def __str__(self):
             return self.title
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="products/images/")
+
+    def __str__(self):
+            return self.product.title
 
 
 class Cart(models.Model):
