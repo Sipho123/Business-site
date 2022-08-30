@@ -27,6 +27,8 @@
 
                                 <a href="{% url 'our_store:customerregistration' %}" class="btn btn-primary">Create an account</a>
                                 <a href="{% url 'our_store:customerlogin' %}" class="btn btn-primary">Login</a>
+                                
+
                                 {% endif %}
                             </div>
                         
@@ -43,6 +45,7 @@
                 </form>
             </div>
         </div>
+        
         <hr>
         <div class="row">
             {% for p in product_list %}

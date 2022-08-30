@@ -3,9 +3,11 @@
     
 {% block title %}All Orders{% endblock  %}
 
-        
+
         {% block content %}
+        
         <div class="container">
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <h3>All Orders</h3><hr>
@@ -27,8 +29,7 @@
                                 <td><a href="{% url 'our_store:adminorderdetail' order.id %}">#ORDER{{order.id}}</a></td>
                                 <td><a>{{order.order_by}}</a></td>
                                 <td>{{order.created_at|timesince}} ago</td>
-                                <td>{{order.order_status}}</td>
-                                <td>{{order.total}}</td>
+                                <td>R{{order.total}}</td>
                                 <td>{{order.order_status}}</td>
                             </tr>
                             {% endfor %}

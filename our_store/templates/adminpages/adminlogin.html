@@ -8,20 +8,6 @@
     
         {% block content %}
         <br>
-        <div class="sixthin wide column">
-            <div class="ui fluid card" style="background-color: rgb(201, 224, 238);">
-                <div class="content">
-                    <div class="btn-group btn-group-justified">
-                        <a href="{% url 'our_store:allproducts' %}" class="btn btn-primary">All Products</a>
-                        <a href="{% url 'our_store:customerregistration' %}" class="btn btn-primary">Login</a>
-                        <a href="{% url 'our_store:customerregistration' %}" class="btn btn-primary">Create an account</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <h3>Admin Login</h3>
@@ -34,6 +20,8 @@
                 <li style="color: red;">{{error}}</li>
                 {% endif %}
             </form>
+            <p>Forgot password?<a href="">Reset now</a></p>
+            <p>Don't you have an account?<a href="">register here</a></p>
             </div>
         </div>
         {% endblock content %}

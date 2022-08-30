@@ -2,11 +2,14 @@
     
     
         {% block title %}
-            <title>all products</title>
+            all products
         {% endblock title %}
-    
+        
         {% block content %}
+      
+        
         <div class="container">
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <h3>All Product List</h3><hr>
@@ -27,7 +30,7 @@
                                 <td>{{forloop.counter}}</td>
                                 <td>{{p.title}}</td>
                                 <td><img src="{{p.image.url}}" style="height: 60px ;" alt=""></td>
-                                <td>{{p.selling_price}}</td>
+                                <td>R{{p.selling_price}}</td>
                                 <td>{{p.view_count}}</td>
                             </tr>
                             {% endfor %}

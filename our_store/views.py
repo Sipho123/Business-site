@@ -43,7 +43,7 @@ class StoreView(EcomMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         all_products = Product.objects.all().order_by("-id")
-        paginator = Paginator(all_products, 4)
+        paginator = Paginator(all_products, 6)
         page_number = self.request.GET.get('page')
         print(page_number)
         product_list = paginator.get_page(page_number)
@@ -378,6 +378,12 @@ class AdminLoginView(FormView):
 
         return super().form_valid(form)
 
+class AdminLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect("our_store:adminlogin")
+
+
 class AdminRequireMixin(object):
      def dispatch(self, request,  *args, **kwargs):
         if request.user.is_authenticated and Admin.objects.filter(user=request.user).exists():
@@ -415,9 +421,9 @@ class AdminOrderStatusChangeView(AdminRequireMixin, View):
     def post(self, request,  *args, **kwargs):
         order_id = self.kwargs['pk']
         order_obj = Order.objects.get(id=order_id)
-        new_status = request.POST('status')
+        new_status = request.POST.get('status')
         order_obj.order_status = new_status
-        order_obj.save
+        order_obj.save()
         return redirect(reverse_lazy('our_store:adminorderdetail', kwargs={'pk': order_id}))
 
 
