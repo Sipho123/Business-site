@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block content %}
-    {% block title %}
+{% block title %}
     <title>retail</title>
     {% endblock title %}
+{% block content %}
+    
+    <br>
+    <center>
     <h1>RFID in Retail</h1>
-    <br/>
+    </center>
+    <hr>
     <div class="ui grid">
         <br>
         <div class="row">
+            
             <div class="col-md-6">
                 <img src={% static 'image/GS1au-banner-rfid-in-retail-848x250 03.jpg' %}>
                 <!--<img src='image.jpg' alt="Image" height="42" width="42">.-->
             </div>
+
             <div class="col-md-6">
                 <p>
                 Radio Frequency Identification (RFID) has been on the immediate horizon for the last 
